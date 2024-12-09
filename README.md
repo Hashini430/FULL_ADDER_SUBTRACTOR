@@ -44,12 +44,68 @@ Write the detailed procedure here
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
 Developed by:HASHINI R
 RegisterNumber:24900728
-*/
-![Screenshot 2024-12-08 042351](https://github.com/user-attachments/assets/017662f2-d9f0-41f7-89d6-e03c33c6b715)
+/* Program to design a half subtractor and full subtractor circuit and veri module exp4(sum, cout, a, b, cin);
+Developed by:HASHINI R
+RegisterNumber:24900728
 
+output sum; output cout; //Corrected the name here
+
+input a;
+
+input b;
+
+input cin;
+
+// Internal nets
+
+wire s1, c1, c2;
+
+// Instantiate logic gate primitives
+
+xor(s1, a, b);
+
+and(c1, a, b);
+
+xor(sum, s1, cin);
+
+and(c2, s1, cin);
+
+or(cout, c2, c1); // Consistent with the output port name
+
+endmodule
+
+module exp41(df, bo, a, b, bin);
+
+output df;
+
+output bo;
+
+input a;
+
+input b;
+
+input bin;
+
+wire w1, w2, w3;
+
+// XOR for difference
+
+assign w1 a^b;
+// XOR for difference
+
+assign wia^b;
+
+assign w2 (a&b);
+
+assign w3(1 & bin);
+
+assign df=w1^bin; 
+assign bo= w2| w3;
+
+endmodule
+/*
 
 **RTL Schematic**
 ![Screenshot 2024-12-08 042429](https://github.com/user-attachments/assets/c62ad0d3-4bd0-44fb-b834-a8ecb135c0d3)
